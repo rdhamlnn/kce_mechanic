@@ -1,0 +1,8 @@
+{
+  "name": "kce/mechanic-report",
+  "require": {
+    "php": ">=7.4",
+    "phpoffice/phpspreadsheet": "^1.30",
+    "dompdf/dompdf": "^2.0"
+  }
+}   
