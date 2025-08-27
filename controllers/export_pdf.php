@@ -1,7 +1,7 @@
 <?php
-require 'config.php';
-if (!is_admin()) { header('Location: dashboard.php'); exit; }
-require 'vendor/autoload.php';
+require __DIR__ . '/../config/config.php';
+if (!is_admin()) { header('Location: ../views/dashboard.php'); exit; }
+require __DIR__ . '/../vendor/autoload.php';
 use Dompdf\Dompdf;
 
 $bulan = $_GET['bulan'] ?? date('m');

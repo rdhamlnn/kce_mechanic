@@ -1,6 +1,6 @@
 <?php
-require 'config.php';
-require 'vendor/autoload.php';
+require __DIR__ . '/../config/config.php';
+require __DIR__ . '/../vendor/autoload.php';
 use Dompdf\Dompdf;
 
 $bulan  = (int)($_GET['bulan'] ?? date('n'));

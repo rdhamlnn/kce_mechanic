@@ -1,5 +1,5 @@
 <?php
-require 'config.php';
+require __DIR__ . '/../config/config.php';
 if (!is_logged_in()) { header('Location: index.php'); exit; }
 
 // FILTER tanggal (sesuai UI laporan mekanik)
@@ -40,17 +40,17 @@ $rekapTotal = $grand;
 <head>
   <meta charset="utf-8">
   <title>Laporan Pemakaian Sparepart</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
 <div class="layout">
-  <?php include 'partials/sidebar.php'; ?>
+  <?php include '../partials/sidebar.php'; ?>
   <div>
     <header class="header">
-      <img src="assets/images/logo_kce_transparent.png" alt="KCE" class="logo-header">
+  <img src="../assets/images/logo_kce_transparent.png" alt="KCE" class="logo-header">
       <div class="user-info">
         Halo, <?=htmlspecialchars($_SESSION['user']['nama'] ?? $_SESSION['user']['username'] ?? 'user')?> |
-        <a href="logout.php">Logout</a>
+  <a href="logout.php">Logout</a>
       </div>
     </header>
 
@@ -74,10 +74,10 @@ $rekapTotal = $grand;
       </form>
 
       <!-- Import Excel + Tambah manual (opsional jika sudah kamu punya file2nya) -->
-      <?php if (file_exists('import_form.php')) include 'import_form.php'; ?>
-      <?php if (file_exists('sparepart_create.php')): ?>
+      <?php if (file_exists('../controllers/import_form.php')) include '../controllers/import_form.php'; ?>
+      <?php if (file_exists('../controllers/sparepart_create.php')): ?>
         <div style="margin:8px 0;">
-          <a href="sparepart_create.php" class="btn">+ Tambah Data Manual</a>
+          <a href="../controllers/sparepart_create.php" class="btn">+ Tambah Data Manual</a>
         </div>
       <?php endif; ?>
 
@@ -107,10 +107,10 @@ $rekapTotal = $grand;
             <td><?=htmlspecialchars($r['keterangan'])?></td>
             <td style="vertical-align:middle;">
               <?php if (file_exists('sparepart_edit.php')): ?>
-                <a class="btn btn-warning" href="sparepart_edit.php?id=<?=$r['id']?>">Edit</a>
+                  <a class="btn btn-warning" href="../controllers/sparepart_edit.php?id=<?=$r['id']?>">Edit</a>
               <?php endif; ?>
               <?php if (file_exists('sparepart_delete.php')): ?>
-                <a class="btn btn-danger" href="sparepart_delete.php?id=<?=$r['id']?>" onclick="return confirm('Hapus data ini?')">Hapus</a>
+                  <a class="btn btn-danger" href="../controllers/sparepart_delete.php?id=<?=$r['id']?>" onclick="return confirm('Hapus data ini?')">Hapus</a>
               <?php endif; ?>
             </td>
           </tr>

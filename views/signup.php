@@ -1,5 +1,5 @@
 <?php
-require 'config.php';
+require __DIR__ . '/../config/config.php';
 $err = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = trim($_POST['username'] ?? '');
@@ -29,12 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
   <meta charset="utf-8">
   <title>Buat Akun Baru - KCE Mekanik</title>
-  <link rel="icon" href="assets/images/logo_kce_favicon.png">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="../assets/images/logo_kce_favicon.png">
+  <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
   <div class="login-card">
-    <img src="assets/images/logo_kce_transparent.png" alt="KCE" class="logo">
+  <img src="../assets/images/logo_kce_transparent.png" alt="KCE" class="logo">
     <h2>Buat Akun Baru</h2>
     <?php if($err): ?><div class="alert"><?=$err?></div><?php endif; ?>
     <form method="post">
@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </select>
       <button type="submit" class="btn btn-success">Daftar</button>
     </form>
-    <p style="margin-top:16px;"><a href="index.php" style="color:#2563eb;text-decoration:underline;">Sudah punya akun? Login</a></p>
+  <p style="margin-top:16px;"><a href="index.php" style="color:#2563eb;text-decoration:underline;">Sudah punya akun? Login</a></p>
   </div>
 </body>
 </html>

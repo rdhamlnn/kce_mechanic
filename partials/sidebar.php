@@ -5,7 +5,7 @@ $current = basename($_SERVER['PHP_SELF']);
 ?>
 <aside class="sidebar">
   <div class="sidebar-brand">
-    <img src="assets/images/logo_kce_transparent.png" alt="KCE" />
+  <img src="../assets/images/logo_kce_transparent.png" alt="KCE" />
     <span>KCE Mechanic</span>
   </div>
 

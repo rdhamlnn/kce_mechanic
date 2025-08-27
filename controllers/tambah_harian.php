@@ -1,6 +1,6 @@
 <?php
-require 'config.php';
-if (!is_logged_in()) { header('Location: index.php'); exit; }
+require __DIR__ . '/../config/config.php';
+if (!is_logged_in()) { header('Location: ../views/index.php'); exit; }
 
 $err = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -16,12 +16,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare("INSERT INTO laporan_perbaikan (tanggal_input, nama_unit, keluhan_kerusakan, penyebab_kerusakan, tgl_mulai_reparasi, tgl_selesai_reparasi, tindakan_perbaikan, created_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->execute([$tanggal_input, $nama_unit, $keluhan, $penyebab, $tgl_mulai, $tgl_selesai, $tindakan, $created_by]);
 
-    header('Location: dashboard.php');
+  header('Location: ../views/dashboard.php');
     exit;
 }
 ?>
 <!doctype html>
-<html><head><meta charset="utf-8"><title>Tambah Laporan - KCE Mekanik</title><link rel="icon" href="assets/images/logo_kce_favicon.png"><link rel="stylesheet" href="assets/css/style.css"></head>
+<html><head><meta charset="utf-8"><title>Tambah Laporan - KCE Mekanik</title><link rel="icon" href="../assets/images/logo_kce_favicon.png"><link rel="stylesheet" href="../assets/css/style.css"></head>
 <body>
   <div class="form-container">
     <h2 style="text-align:center; margin-bottom:32px;">Tambah Laporan</h2>
@@ -62,6 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
       <button type="submit" class="btn btn-success" style="width:100%;margin-top:16px;">Simpan</button>
     </form>
-    <p style="text-align:center;margin-top:24px;"><a href="dashboard.php" class="btn btn-secondary">Kembali</a></p>
+  <p style="text-align:center;margin-top:24px;"><a href="../views/dashboard.php" class="btn btn-secondary">Kembali</a></p>
   </div>
 </body></html>

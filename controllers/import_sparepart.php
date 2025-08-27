@@ -1,10 +1,10 @@
 <?php
-require 'config.php';
-require 'vendor/autoload.php';
+require __DIR__ . '/../config/config.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
-if (!is_logged_in()) { header('Location: index.php'); exit; }
+if (!is_logged_in()) { header('Location: ../views/index.php'); exit; }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file_excel'])) {
     $tmp = $_FILES['file_excel']['tmp_name'];
@@ -56,11 +56,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['file_excel'])) {
             }
         }
         $pdo->commit();
-        echo "<script>alert('Import selesai!');window.location='laporan_sparepart.php';</script>";
+        echo "<script>alert('Import selesai!');window.location='../views/laporan_sparepart.php';</script>";
     } catch (Exception $e) {
         $pdo->rollBack();
         echo "Gagal import: ".$e->getMessage();
     }
 } else {
-    header('Location: laporan_sparepart.php');
+    header('Location: ../views/laporan_sparepart.php');
 }

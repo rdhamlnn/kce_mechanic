@@ -1,15 +1,15 @@
 
 <?php
-require 'config.php';
-if (!is_logged_in()) { header('Location: index.php'); exit; }
+require __DIR__ . '/../config/config.php';
+if (!is_logged_in()) { header('Location: ../views/index.php'); exit; }
 
 $id = $_GET['id'] ?? null;
-if (!$id) { header('Location: dashboard.php'); exit; }
+if (!$id) { header('Location: ../views/dashboard.php'); exit; }
 
 $stmt = $pdo->prepare("SELECT * FROM laporan_perbaikan WHERE id = ?");
 $stmt->execute([$id]);
 $data = $stmt->fetch();
-if (!$data) { header('Location: dashboard.php'); exit; }
+if (!$data) { header('Location: ../views/dashboard.php'); exit; }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $tanggal_input = $_POST['tanggal_input'];
@@ -22,12 +22,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $up = $pdo->prepare("UPDATE laporan_perbaikan SET tanggal_input=?, nama_unit=?, keluhan_kerusakan=?, penyebab_kerusakan=?, tgl_mulai_reparasi=?, tgl_selesai_reparasi=?, tindakan_perbaikan=? WHERE id = ?");
     $up->execute([$tanggal_input, $nama_unit, $keluhan, $penyebab, $tgl_mulai, $tgl_selesai, $tindakan, $id]);
-    header('Location: dashboard.php');
+  header('Location: ../views/dashboard.php');
     exit;
 }
 ?>
 <!doctype html>
-<html><head><meta charset="utf-8"><title>Edit Laporan - KCE Mekanik</title><link rel="icon" href="assets/images/logo_kce_favicon.png"><link rel="stylesheet" href="assets/css/style.css"></head>
+<html><head><meta charset="utf-8"><title>Edit Laporan - KCE Mekanik</title><link rel="icon" href="../assets/images/logo_kce_favicon.png"><link rel="stylesheet" href="../assets/css/style.css"></head>
 <body>
   <div class="form-container">
     <h2 style="text-align:center; margin-bottom:32px;">Edit Laporan</h2>
@@ -68,6 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
       <button type="submit" class="btn btn-success" style="width:100%;margin-top:16px;">Simpan</button>
     </form>
-    <p style="text-align:center;margin-top:24px;"><a href="dashboard.php" class="btn btn-secondary">Kembali</a></p>
+  <p style="text-align:center;margin-top:24px;"><a href="../views/dashboard.php" class="btn btn-secondary">Kembali</a></p>
   </div>
 </body></html>

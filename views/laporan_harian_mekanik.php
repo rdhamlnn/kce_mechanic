@@ -1,5 +1,5 @@
 <?php
-require 'config.php';
+require __DIR__ . '/../config/config.php';
 if (!is_logged_in()) { header('Location: index.php'); exit; }
 // ini_set('display_errors',1); error_reporting(E_ALL);
 
@@ -52,7 +52,7 @@ function tgl_id($s){ return $s ? date('d/m/Y', strtotime($s)) : ''; }
 <head>
   <meta charset="utf-8">
   <title>Laporan Harian Mekanik</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/style.css">
   <style>
   .toolbar { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
   .btn { display:inline-block; border-radius:10px; text-decoration:none; font-weight:600; }
@@ -66,13 +66,13 @@ function tgl_id($s){ return $s ? date('d/m/Y', strtotime($s)) : ''; }
 </head>
 <body>
 <div class="layout">
-  <?php include 'partials/sidebar.php'; ?>
+  <?php include '../partials/sidebar.php'; ?>
   <div>
     <header class="header">
-      <img src="assets/images/logo_kce_transparent.png" alt="KCE" class="logo-header">
+  <img src="../assets/images/logo_kce_transparent.png" alt="KCE" class="logo-header">
       <div class="user-info">
         Halo, <?=htmlspecialchars($_SESSION['user']['nama'] ?? $_SESSION['user']['username'] ?? 'user')?> |
-        <a href="logout.php">Logout</a>
+  <a href="logout.php">Logout</a>
       </div>
     </header>
 
@@ -113,9 +113,9 @@ function tgl_id($s){ return $s ? date('d/m/Y', strtotime($s)) : ''; }
 
         <!-- Toolbar -->
         <div class="toolbar" style="margin-bottom:12px;">
-          <a class="btn btn-primary" href="tambah_harian.php">+ Tambah Laporan</a>
-          <a class="btn btn-outline" href="export_laporan_harian_excel.php?bulan=<?=$bulan?>&tahun=<?=$tahun?>&minggu=<?=$minggu?>" target="_blank">Download Excel</a>
-          <a class="btn btn-outline" href="export_laporan_harian_pdf.php?bulan=<?=$bulan?>&tahun=<?=$tahun?>&minggu=<?=$minggu?>" target="_blank">Download PDF</a>
+          <a class="btn btn-primary" href="../controllers/tambah_harian.php">+ Tambah Laporan</a>
+          <a class="btn btn-outline" href="../controllers/export_laporan_harian_excel.php?bulan=<?=$bulan?>&tahun=<?=$tahun?>&minggu=<?=$minggu?>" target="_blank">Download Excel</a>
+          <a class="btn btn-outline" href="../controllers/export_laporan_harian_pdf.php?bulan=<?=$bulan?>&tahun=<?=$tahun?>&minggu=<?=$minggu?>" target="_blank">Download PDF</a>
         </div>
 
         <!-- Tabel -->
@@ -144,8 +144,8 @@ function tgl_id($s){ return $s ? date('d/m/Y', strtotime($s)) : ''; }
                 <td><?= htmlspecialchars($r['diinput_label']) ?></td>
                 <td style="vertical-align:middle; text-align:center;">
                   <div style="display:flex; gap:8px; justify-content:center; align-items:center;">
-                    <a class="btn btn-warning btn-sm" href="edit_harian.php?id=<?=$r['id']?>">Edit</a>
-                    <a class="btn btn-danger btn-sm" href="delete_harian.php?id=<?=$r['id']?>" onclick="return confirm('Hapus data ini?')">Hapus</a>
+                    <a class="btn btn-warning btn-sm" href="../controllers/edit_harian.php?id=<?=$r['id']?>">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="../controllers/delete_harian.php?id=<?=$r['id']?>" onclick="return confirm('Hapus data ini?')">Hapus</a>
                   </div>
                 </td>
               </tr> 

@@ -1,5 +1,5 @@
 <?php
-require 'config.php';
+require __DIR__ . '/../config/config.php';
 if (!is_logged_in()) { header('Location: index.php'); exit; }
 
 // (opsional) aktifkan debug saat perlu:
@@ -71,16 +71,16 @@ try {
 <head>
   <meta charset="utf-8">
   <title>Dashboard - KCE Mekanik</title>
-  <link rel="icon" href="assets/images/logo_kce_favicon.png">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" href="../assets/images/logo_kce_transparent.png">
+  <link rel="stylesheet" href="../assets/css/style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <div class="layout">
-    <?php include 'partials/sidebar.php'; ?>
+  <?php include '../partials/sidebar.php'; ?>
     <div>
       <header class="header">
-        <img src="assets/images/logo_kce_transparent.png" alt="KCE" class="logo-header">
+        <img src="../assets/images/logo_kce_transparent.png" alt="KCE" class="logo-header">
         <div class="user-info">
           Halo, <?=htmlspecialchars($_SESSION['user']['nama'] ?? $_SESSION['user']['username'] ?? 'user')?> |
           <a href="logout.php">Logout</a>

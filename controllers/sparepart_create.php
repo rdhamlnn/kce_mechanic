@@ -1,6 +1,6 @@
 <?php
-require 'config.php';
-if (!is_logged_in()) { header('Location: index.php'); exit; }
+require __DIR__ . '/../config/config.php';
+if (!is_logged_in()) { header('Location: ../views/index.php'); exit; }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $tanggal = $_POST['tanggal_pakai'] ?? '';
@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       (tanggal_pakai, unit, nama_item, jumlah, satuan, harga_satuan, keterangan, created_by)
       VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
     $stmt->execute([$tanggal, $unit, $nama, $jumlah, $satuan, $harga, $ket, $_SESSION['user']['id'] ?? null]);
-    header('Location: laporan_sparepart.php');
+  header('Location: ../views/laporan_sparepart.php');
     exit;
   } else {
     $err = "Tanggal, Unit, dan Nama Item wajib diisi.";
@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 <!doctype html>
 <html>
-<head><meta charset="utf-8"><title>Tambah Sparepart</title><link rel="stylesheet" href="assets/css/style.css"></head>
+<head><meta charset="utf-8"><title>Tambah Sparepart</title><link rel="stylesheet" href="../assets/css/style.css"></head>
 
 <body>
   <div class="form-container">
@@ -68,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
       <button type="submit" class="btn btn-success" style="width:100%;margin-top:16px;">Simpan</button>
     </form>
-    <p style="text-align:center;margin-top:24px;"><a href="laporan_sparepart.php" class="btn btn-secondary">Kembali</a></p>
+  <p style="text-align:center;margin-top:24px;"><a href="../views/laporan_sparepart.php" class="btn btn-secondary">Kembali</a></p>
   </div>
 </body>
 </html>
