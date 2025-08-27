@@ -79,7 +79,7 @@ function tgl_id($s){ return $s ? date('d/m/Y', strtotime($s)) : ''; }
     <main class="main">
       <div class="card" style="padding:18px;">
         <h1 style="margin:0 0 4px;">Laporan Harian Mekanik</h1>
-        <div style="height:3px; width:60px; background:#22c55e; border-radius:3px; margin:8px 0 16px;"></div>
+        <div style="height:3px; width:60px; border-radius:3px; margin:8px 0 16px;"></div>
 
         <!-- Filter -->
         <form method="get" class="card" style="padding:10px; background:#f8fafc; border-radius:12px; border:1px solid #e2e8f0; margin-bottom:12px;">
@@ -148,7 +148,7 @@ function tgl_id($s){ return $s ? date('d/m/Y', strtotime($s)) : ''; }
                     <a class="btn btn-danger btn-sm" href="delete_harian.php?id=<?=$r['id']?>" onclick="return confirm('Hapus data ini?')">Hapus</a>
                   </div>
                 </td>
-              </tr>
+              </tr> 
             <?php endforeach; ?>
             <?php if (!$rows): ?>
               <tr><td colspan="9" style="text-align:center; color:#64748b;">Tidak ada data untuk kriteria ini.</td></tr>
