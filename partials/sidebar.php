@@ -21,10 +21,10 @@ $current = basename($_SERVER['PHP_SELF']);
     </button>
     <div id="laporanMenu" class="sidebar-collapse">
       <a class="sidebar-sublink <?= $current==='laporan_harian_mekanik.php' ? 'active':'' ?>" href="laporan_harian_mekanik.php">
-        • Laporan Harian Mekanik
+        🧑🏻‍🔧 Laporan Harian Mekanik
       </a>
       <a class="sidebar-sublink <?= $current==='laporan_sparepart.php' ? 'active':'' ?>" href="laporan_sparepart.php">
-        • Laporan Pemakaian Barang/Sparepart
+        ⚙️ Laporan Pemakaian Barang/Sparepart
       </a>
     </div>
   </nav>

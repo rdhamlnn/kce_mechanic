@@ -54,19 +54,14 @@ function tgl_id($s){ return $s ? date('d/m/Y', strtotime($s)) : ''; }
   <title>Laporan Harian Mekanik</title>
   <link rel="stylesheet" href="assets/css/style.css">
   <style>
-    .toolbar { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
-    .btn { display:inline-block; padding:10px 14px; border-radius:10px; text-decoration:none; font-weight:600; }
-    .btn-primary { background:#2563eb; color:#fff; }
-    .btn-outline { background:#fff; color:#1f2937; border:1px solid #cbd5e1; }
-    .btn-warning { background:#f59e0b; color:#111827; }
-    .btn-danger  { background:#ef4444; color:#fff; }
-    .table-wrap table { border-collapse:separate; border-spacing:0; width:100%; }
-    .table-wrap th { background:#1d4ed8; color:#fff; padding:10px; font-weight:700; }
-    .table-wrap tr:first-child th:first-child { border-top-left-radius:10px; }
-    .table-wrap tr:first-child th:last-child  { border-top-right-radius:10px; }
-    .table-wrap td { background:#fff; padding:10px; border-bottom:1px solid #e5e7eb; vertical-align:top; }
-    .filter-box { display:flex; gap:8px; flex-wrap:wrap; }
-    .filter-box select, .filter-box input[type="number"] { padding:8px 10px; border:1px solid #cbd5e1; border-radius:8px; }
+  .toolbar { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .btn { display:inline-block; border-radius:10px; text-decoration:none; font-weight:600; }
+  .btn-primary { background:#2563eb; color:#fff; }
+  .btn-outline { background:#fff; color:#1f2937; border:1px solid #cbd5e1; }
+  .btn-warning { background:#f59e0b; color:#111827; }
+  .btn-danger  { background:#ef4444; color:#fff; }
+  .filter-box { display:flex; gap:8px; flex-wrap:wrap; }
+  .filter-box select, .filter-box input[type="number"] { padding:8px 10px; border:1px solid #cbd5e1; border-radius:8px; }
   </style>
 </head>
 <body>
@@ -125,7 +120,7 @@ function tgl_id($s){ return $s ? date('d/m/Y', strtotime($s)) : ''; }
 
         <!-- Tabel -->
         <div class="table-wrap">
-          <table>
+          <table class="table" width="100%">
             <tr>
               <th>HARI/TANGGAL</th>
               <th>NAMA UNIT</th>
@@ -135,7 +130,7 @@ function tgl_id($s){ return $s ? date('d/m/Y', strtotime($s)) : ''; }
               <th>TGL SELESAI</th>
               <th>TINDAKAN PERBAIKAN</th>
               <th>DIINPUT OLEH</th>
-              <th>AKSI</th>
+              <th style="text-align:center;">AKSI</th>
             </tr>
             <?php foreach ($rows as $r): ?>
               <tr>
@@ -147,9 +142,11 @@ function tgl_id($s){ return $s ? date('d/m/Y', strtotime($s)) : ''; }
                 <td><?= tgl_id($r['tgl_selesai']) ?></td>
                 <td><?= nl2br(htmlspecialchars($r['tindakan'])) ?></td>
                 <td><?= htmlspecialchars($r['diinput_label']) ?></td>
-                <td>
-                  <a class="btn btn-warning" href="edit_harian.php?id=<?=$r['id']?>">Edit</a>
-                  <a class="btn btn-danger" href="delete_harian.php?id=<?=$r['id']?>" onclick="return confirm('Hapus data ini?')">Hapus</a>
+                <td style="vertical-align:middle; text-align:center;">
+                  <div style="display:flex; gap:8px; justify-content:center; align-items:center;">
+                    <a class="btn btn-warning btn-sm" href="edit_harian.php?id=<?=$r['id']?>">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="delete_harian.php?id=<?=$r['id']?>" onclick="return confirm('Hapus data ini?')">Hapus</a>
+                  </div>
                 </td>
               </tr>
             <?php endforeach; ?>

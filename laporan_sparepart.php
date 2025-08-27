@@ -93,7 +93,7 @@ $rekapTotal = $grand;
             <th>Harga Satuan</th>
             <th>Total Harga</th>
             <th>Keterangan</th>
-            <th>Aksi</th>
+            <th style="text-align:center;">Aksi</th>
           </tr>
           <?php foreach ($rows as $r): ?>
           <tr>
@@ -107,10 +107,10 @@ $rekapTotal = $grand;
             <td><?=htmlspecialchars($r['keterangan'])?></td>
             <td style="vertical-align:middle;">
               <?php if (file_exists('sparepart_edit.php')): ?>
-                <a class="btn btn-warning btn-sm" href="sparepart_edit.php?id=<?=$r['id']?>">Edit</a>
+                <a class="btn btn-warning" href="sparepart_edit.php?id=<?=$r['id']?>">Edit</a>
               <?php endif; ?>
               <?php if (file_exists('sparepart_delete.php')): ?>
-                <a class="btn btn-danger btn-sm" href="sparepart_delete.php?id=<?=$r['id']?>" onclick="return confirm('Hapus data ini?')">Hapus</a>
+                <a class="btn btn-danger" href="sparepart_delete.php?id=<?=$r['id']?>" onclick="return confirm('Hapus data ini?')">Hapus</a>
               <?php endif; ?>
             </td>
           </tr>
