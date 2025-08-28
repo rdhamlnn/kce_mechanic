@@ -45,13 +45,17 @@ body {
     max-width: 1200px;
     margin: 0 auto 25px;
     background: var(--white);
-    padding: 20px 24px;
+    padding: 18px 32px;
     border-radius: var(--border-radius-lg);
     box-shadow: var(--shadow-lg);
     border: 1px solid rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
 }
 
 .header::before {
@@ -102,42 +106,51 @@ body {
 }
 
 .logo-header {
-    height: 36px;
-    float: left;
-    margin-right: 12px;
-    margin-top: -2px;
+    height: 44px;
+    margin-right: 18px;
+    margin-top: 0;
     transition: var(--transition);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 .logo-header:hover {
-    transform: rotate(5deg) scale(1.1);
+    transform: scale(1.08) rotate(3deg);
+    box-shadow: 0 4px 16px rgba(37,99,235,0.12);
 }
 
 /* User Info */
 .user-info {
-    float: right;
-    margin-top: -8px;
     display: flex;
     align-items: center;
-    gap: 12px;
-    background: var(--light-gray);
-    padding: 8px 16px;
-    border-radius: 20px;
+    gap: 16px;
+    font-size: 1rem;
+    color: var(--primary-color);
     font-weight: 500;
-    color: var(--dark-color);
-    transition: var(--transition);
+    margin-left: auto;
 }
 
 .user-info:hover {
-    background: var(--primary-color);
-    color: var(--white);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    /* Optional: add hover effect for user-info container if needed */
 }
 
 .user-info::before {
-    content: '👤';
-    font-size: 16px;
+    /* Optional: add icon before user-info if needed */
+}
+/* Tambahan styling untuk link di user-info */
+.user-info a {
+    color: var(--danger-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 6px 16px;
+    border-radius: 6px;
+    background: #f9fafb;
+    transition: var(--transition);
+    margin-left: 8px;
+}
+.user-info a:hover {
+    background: var(--danger-color);
+    color: #fff;
 }
 
 /* Headings */

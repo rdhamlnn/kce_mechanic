@@ -86,6 +86,17 @@ try {
           <a href="logout.php">Logout</a>
         </div>
       </header>
+      <script>
+        document.addEventListener('DOMContentLoaded', function(){
+          var sidebar = document.querySelector('.sidebar');
+          var toggle = document.getElementById('sidebarToggle');
+          if (toggle && sidebar) {
+            toggle.addEventListener('click', function(){
+              sidebar.classList.toggle('collapsed');
+            });
+          }
+        });
+      </script>
 
       <main class="main">
         <h1 style="margin:0 0 12px;">Dashboard</h1>
