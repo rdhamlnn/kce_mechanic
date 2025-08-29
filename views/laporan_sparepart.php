@@ -40,6 +40,7 @@ $rekapTotal = $grand;
 <head>
   <meta charset="utf-8">
   <title>Laporan Pemakaian Sparepart</title>
+  <link rel="icon" href="../assets/images/logo_kce_transparent.png">
   <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>

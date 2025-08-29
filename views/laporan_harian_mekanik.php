@@ -52,6 +52,7 @@ function tgl_id($s){ return $s ? date('d/m/Y', strtotime($s)) : ''; }
 <head>
   <meta charset="utf-8">
   <title>Laporan Harian Mekanik</title>
+  <link rel="icon" href="../assets/images/logo_kce_transparent.png">
   <link rel="stylesheet" href="../assets/css/style.css">
   <style>
   .toolbar { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
