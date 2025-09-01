@@ -68,6 +68,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
       <button type="submit" class="btn btn-success" style="width:100%;margin-top:16px;">Simpan</button>
     </form>
-  <p style="text-align:center;margin-top:24px;"><a href="../views/dashboard.php" class="btn btn-secondary">Kembali</a></p>
+  <p style="text-align:center;margin-top:24px;"><a href="../views/laporan_harian_mekanik.php" class="btn btn-secondary">Kembali</a></p>
   </div>
 </body></html>

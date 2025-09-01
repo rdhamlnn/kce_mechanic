@@ -7,5 +7,5 @@ if ($id) {
     $stmt = $pdo->prepare("DELETE FROM laporan_perbaikan WHERE id = ?");
     $stmt->execute([$id]);
 }
-header('Location: ../views/dashboard.php');
+header('Location: ../views/laporan_harian_mekanik.php');
 exit;
