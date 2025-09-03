@@ -59,18 +59,22 @@ $rekapTotal = $grand;
       <h1 style="margin:0 0 12px;">Laporan Pemakaian Sparepart</h1>
 
       <!-- Filter (tanggal) -->
-      <form method="get" class="card" style="margin-bottom:12px;">
-        <div style="display:flex; gap:8px; flex-wrap:wrap; align-items:end;">
+  <form method="get" class="card" style="padding:10px; background:#fff; border-radius:12px; border:1px solid #e2e8f0; margin-bottom:12px;">
+        <div class="filter-box" style="display:flex; gap:8px; flex-wrap:wrap; align-items:flex-end;">
           <div>
-            <label>Dari</label><br>
-            <input type="date" name="dari" value="<?=htmlspecialchars($_GET['dari'] ?? '')?>">
+            <label>Dari:</label><br>
+            <input type="date" name="dari" value="<?=htmlspecialchars($_GET['dari'] ?? '')?>" class="filter-input" style="padding:8px 10px; border:1px solid #cbd5e1; border-radius:8px;">
           </div>
           <div>
-            <label>Sampai</label><br>
-            <input type="date" name="sampai" value="<?=htmlspecialchars($_GET['sampai'] ?? '')?>">
+            <label>Sampai:</label><br>
+            <input type="date" name="sampai" value="<?=htmlspecialchars($_GET['sampai'] ?? '')?>" class="filter-input" style="padding:8px 10px; border:1px solid #cbd5e1; border-radius:8px;">
           </div>
-          <div><button type="submit">Filter</button></div>
-          <div><a href="laporan_sparepart.php">Reset</a></div>
+          <div style="align-self:flex-end;">
+            <button class="btn btn-outline" type="submit" style="background:#fff; color:#1f2937; border:1px solid #cbd5e1; font-weight:700;">Filter</button>
+          </div>
+          <div>
+            <a href="laporan_sparepart.php" style="color:#ef4444; font-weight:600; text-decoration:none; display:inline-block; padding:8px 0 0 0;">Reset</a>
+          </div>
         </div>
       </form>
 
